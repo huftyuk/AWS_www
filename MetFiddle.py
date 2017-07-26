@@ -9,7 +9,7 @@ apikey = APIKeyManager.MetDataPoint
 
 
 # Create datapoint connection
-conn = datapoint.Manager(api_key="b4baeff2-91d6-4704-9b35-fd7ac38d0825")
+conn = datapoint.Manager(api_key=apikey)
 
 # Get nearest site and print out its name
 site = conn.get_nearest_site(-0.124626, 51.500728)
