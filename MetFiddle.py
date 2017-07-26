@@ -1,7 +1,9 @@
 #pip install datapoint
 #https://github.com/jacobtomlinson/datapoint-python
 import datapoint  
+import /home/ubuntu/APIKeyManager
 
+apikey = APIKeyManager.METDataPoint
 
 
 # Create datapoint connection
