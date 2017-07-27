@@ -32,7 +32,7 @@ while 1:
   print "%s%s%s" % (now.temperature.value,
                   u'\xb0', #Unicode character for degree symbol
                   now.temperature.units)
-  urlstring = "https://api.thingspeak.com/update?key=CA3YNXBUBJTKRLVH&field1=" + now.temperature.value
+  urlstring = "https://api.thingspeak.com/update?key=CA3YNXBUBJTKRLVH&field1=" + str(now.temperature.value)
   f = urllib.urlopen(urlstring)
   print f.read()
   time.sleep(16)
