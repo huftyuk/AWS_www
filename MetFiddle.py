@@ -9,6 +9,7 @@ import pprint
 import urllib
 import time
 i = 1;
+print i
 baseURL = 'https://api.thingspeak.com/update?api_key=CA3YNXBUBJTKRLVH'
 
   
