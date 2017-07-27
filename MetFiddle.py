@@ -19,7 +19,7 @@ apikey = APIKeyManager.MetDataPoint
 conn = datapoint.Manager(api_key=apikey)
 
 # Get nearest site and print out its name
-site = conn.get_nearest_site(-0.124626, 51.500728)
+site = conn.get_nearest_site(-0.5935112, 51.2339491)
 print site.name
 
 while 1:
