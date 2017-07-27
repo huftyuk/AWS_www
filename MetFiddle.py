@@ -28,7 +28,7 @@ while 1:
 
   # Get the current timestep using now() and print out some info
   now = forecast.now()
-  pprint.pprint(now)
+  print(now.date.value)
   print now.weather.text
   print "%s%s%s" % (now.temperature.value,
                   u'\xb0', #Unicode character for degree symbol
