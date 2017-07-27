@@ -33,7 +33,7 @@ while 1:
   print "%s%s%s" % (now.temperature.value,
                   u'\xb0', #Unicode character for degree symbol
                   now.temperature.units)
-  urlstring = baseurl + "&field1=" + str(now.temperature.value) + "&field2=" + str(now.uv.value)
+  urlstring = baseURL  + "&field1=" + str(now.temperature.value) + "&field2=" + str(now.uv.value)
   f = urllib.urlopen(urlstring)
   print f.read()
   time.sleep(16)
