@@ -31,8 +31,10 @@ while 1:
 		rHumidity = str(y.data[0]["Screen Relative Humidity"][0])
 		NWeather = str(y.data[0]["Weather Type"][0])
 		xVisibility = str(y.data[0]["Visibility"][0])
-		pprint.pprint(y.data)
-		urlstring = TSbaseURL  + "&field1=" + TAmbient + "&field2=" + pAmbient + "&field3=" + vWind + "&field4=" + TDewPoint + "&field5=" + rHumidity + "&field6=" + NWeather + "&field7=" + xVisibility
+		vWindGust = str(y.data[0]["Wind Gust"][0])
+		#pprint.pprint(y.data)
+		urlstring = TSbaseURL  + "&field1=" + TAmbient + "&field2=" + pAmbient + "&field3=" + vWind + "&field4=" + TDewPoint + "&field5=" + rHumidity + "&field6=" + NWeather + "&field7=" + xVisibility  + "&field8=" + vWindGust
+		print urlstring
 		f = urllib.urlopen(urlstring)
 		print f.read()
 		print("Temperature is " + str(y.data[0]["Temperature"][0]))
