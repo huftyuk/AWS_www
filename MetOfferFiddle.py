@@ -9,7 +9,7 @@ import APIKeyManager
 MetDataPointAPIKey = APIKeyManager.MetDataPoint
 import pprint
 
-TSbaseURL = 'https://api.thingspeak.com/update?api_key=CA3YNXBUBJTKRLVH'
+TSbaseURL = 'https://api.thingspeak.com/update?api_key=W1SUNO795Y0QXY0E'
 
 M = metoffer.MetOffer(MetDataPointAPIKey)
 #x = M.nearest_loc_forecast(-0.5935112, 51.2339491, metoffer.THREE_HOURLY)
