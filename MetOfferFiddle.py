@@ -20,9 +20,13 @@ while 1:
 	print(y.data_date)	
 	TAmbient = str(y.data[0]["Temperature"][0])
 	pAmbient = str(y.data[0]["Pressure"][0])
-#	vWind = str(y.data[0]["Pressure"][0])
+	vWind = str(y.data[0]["Wind Speed"][0])
+	TDewPoint = str(y.data[0]["Dew Point"][0])
+	rHumidity = str(y.data[0]["Screen Relative Humidity"][0])
+	NWeather = str(y.data[0]["Weather Type"][0])
+	xVisibility = str(y.data[0]["Visibility"][0])
 	pprint.pprint(y.data)
-	urlstring = TSbaseURL  + "&field1=" + Temp + "&field2=" + Pressure
+	urlstring = TSbaseURL  + "&field1=" + TAmbient + "&field2=" + pAmbient + "&field3=" + vWind + "&field4=" + pAmbient + "&field5=" + pAmbient + "&field6=" + pAmbient + "&field7=" + pAmbient
 	f = urllib.urlopen(urlstring)
 	print f.read()
 	print("Temperature is " + str(y.data[0]["Temperature"][0]))
