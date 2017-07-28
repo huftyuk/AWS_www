@@ -21,7 +21,7 @@ while 1:
 	TAmbient = str(y.data[0]["Temperature"][0])
 	pAmbient = str(y.data[0]["Pressure"][0])
 #	vWind = str(y.data[0]["Pressure"][0])
-	pprint(y.data)
+	pprint.pprint(y.data)
 	urlstring = TSbaseURL  + "&field1=" + Temp + "&field2=" + Pressure
 	f = urllib.urlopen(urlstring)
 	print f.read()
