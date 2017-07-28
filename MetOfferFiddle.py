@@ -12,7 +12,7 @@ import pprint
 TSbaseURL = 'https://api.thingspeak.com/update?api_key=CA3YNXBUBJTKRLVH'
 
 M = metoffer.MetOffer(MetDataPointAPIKey)
-#x = M.nearest_loc_forecast(51.4033, -0.3375, metoffer.THREE_HOURLY)
+#x = M.nearest_loc_forecast(-0.5935112, 51.2339491, metoffer.THREE_HOURLY)
 lasttime = datetime.datetime.now()
 print lasttime
 
@@ -31,8 +31,8 @@ while 1:
 		rHumidity = str(y.data[0]["Screen Relative Humidity"][0])
 		NWeather = str(y.data[0]["Weather Type"][0])
 		xVisibility = str(y.data[0]["Visibility"][0])
-		#pprint.pprint(y.data)
-		urlstring = TSbaseURL  + "&field1=" + TAmbient + "&field2=" + pAmbient + "&field3=" + vWind + "&field4=" + pAmbient + "&field5=" + pAmbient + "&field6=" + pAmbient + "&field7=" + pAmbient
+		pprint.pprint(y.data)
+		urlstring = TSbaseURL  + "&field1=" + TAmbient + "&field2=" + pAmbient + "&field3=" + vWind + "&field4=" + TDewPoint + "&field5=" + rHumidity + "&field6=" + NWeather + "&field7=" + xVisibility
 		f = urllib.urlopen(urlstring)
 		print f.read()
 		print("Temperature is " + str(y.data[0]["Temperature"][0]))
