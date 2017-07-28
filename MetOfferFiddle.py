@@ -22,5 +22,8 @@ pprint.pprint(y.data)
 for i in y.data:
 	print("{} - {}".format(i["timestamp"][0].strftime("%d %b, %H:%M"), metoffer.WEATHER_CODES[i["Weather Type"][0]]))
 
-metoffer.VISIBILITY[y.data[0]["Visibility"][0]]
-metoffer.guidance_UV(y.data[0]["Max UV Index"][0])
+print("Temperature is " + str(y.data[0]["Temperature"][0]))
+print("Visbility Code is " + str(y.data[0]["Visibility"][0]))
+	
+#metoffer.VISIBILITY[y.data[0]["Visibility"][0]]
+#metoffer.guidance_UV(y.data[0]["Max UV Index"][0])
