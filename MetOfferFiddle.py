@@ -19,7 +19,7 @@ while 1:
 	y = metoffer.parse_val(x)
 	print(y.data_date)	
 	Temp = str(y.data[0]["Temperature"][0])
-	urlstring = baseURL  + "&field1=" + Temp + "&field2=" + Temp
+	urlstring = TSbaseURL  + "&field1=" + Temp + "&field2=" + Temp
 	f = urllib.urlopen(urlstring)
 	print f.read()
 	print("Temperature is " + str(y.data[0]["Temperature"][0]))
