@@ -13,7 +13,7 @@ TSbaseURL = 'https://api.thingspeak.com/update?api_key=CA3YNXBUBJTKRLVH'
 
 M = metoffer.MetOffer(MetDataPointAPIKey)
 #x = M.nearest_loc_forecast(51.4033, -0.3375, metoffer.THREE_HOURLY)
-lasttime = datetime.now()
+lasttime = datetime.datetime.now()
 print lasttime
 
 while 1:
