@@ -18,8 +18,11 @@ while 1:
 	x = M.nearest_loc_obs(51.4033, -0.3375)
 	y = metoffer.parse_val(x)
 	print(y.data_date)	
-	Temp = str(y.data[0]["Temperature"][0])
-	urlstring = TSbaseURL  + "&field1=" + Temp + "&field2=" + Temp
+	TAmbient = str(y.data[0]["Temperature"][0])
+	pAmbient = str(y.data[0]["Pressure"][0])
+#	vWind = str(y.data[0]["Pressure"][0])
+	pprint(y.data)
+	urlstring = TSbaseURL  + "&field1=" + Temp + "&field2=" + Pressure
 	f = urllib.urlopen(urlstring)
 	print f.read()
 	print("Temperature is " + str(y.data[0]["Temperature"][0]))
