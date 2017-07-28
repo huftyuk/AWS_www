@@ -8,7 +8,7 @@ import pprint
 
 M = metoffer.MetOffer(MetDataPointAPIKey)
 x = M.nearest_loc_forecast(51.4033, -0.3375, metoffer.THREE_HOURLY)
-x = M.nearest_loc_obs(51.4033, -0.3375, metoffer.HOURLY)
+x = M.nearest_loc_obs(51.4033, -0.3375)
 
 
 y = metoffer.parse_val(x)
