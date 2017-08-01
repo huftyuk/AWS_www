@@ -21,8 +21,9 @@ var channelsLoaded = 0;
 // fieldList shows which field you want to load, and which axis to display that field on, 
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
-channelKeys.push({channelNumber:309015, name:'Weather',key:'YFN8IGANE2AMC684',fieldList:[{field:1,axis:'T'},{field:2,axis:'P'},{field:3,axis:'H'},{field:4,axis:'T'},{field:5,axis:'H'},{field:6,axis:'T'},{field:7,axis:'T'}]});
-channelKeys.push({channelNumber:310212, name:'Weather',key:'YFN8IGANE2AMC684',fieldList:[{field:1,axis:'T'},{field:2,axis:'P'},{field:3,axis:'H'},{field:4,axis:'T'},{field:5,axis:'H'},{field:6,axis:'T'},{field:7,axis:'T'}]});
+// Parameters are 1 = Temperature, 2 = Pressure, 3 = vWind, 4 = TDewPoint, 5 = Humidity, 6 = NWeather, 7 = Visibility
+channelKeys.push({channelNumber:309015, name:'Weather GU2',key:'YFN8IGANE2AMC684',fieldList:[{field:1,axis:'T'},{field:2,axis:'P'},{field:3,axis:'O'},{field:4,axis:'T'},{field:5,axis:'H'}]});
+channelKeys.push({channelNumber:310212, name:'Weather S60',key:'W03HJ322D3OFBEG8',fieldList:[{field:1,axis:'T'},{field:2,axis:'P'},{field:3,axis:'O'},{field:4,axis:'T'},{field:5,axis:'H'}]});
 
 //channelKeys.push({channelNumber:110690, name:'Lounge',key:'XXXXXXXXXXXXXXXX',
 //   fieldList:[{field:1,axis:'T'},{field:2,axis:'P'},{field:6,axis:'L2'}]});
@@ -109,6 +110,8 @@ $(document).ready(function()
 		  	 var v = eval(fieldStr);
  		  	p[0] = getChartDate(data.feeds[h].created_at);
 	 	  	p[1] = parseFloat(v);
+			//Turn visibility into km
+			if (fieldIndex == 6) p[1] = p[1] / 1000;
 	 	  	// if a numerical value exists add it
 	   		if (!isNaN(parseInt(v))) { fieldList[fieldIndex].data.push(p); }
        }
@@ -272,8 +275,8 @@ $(document).ready(function()
 		},
 		yAxis: [{
             top: '0%', height: '33%',
-			floor: -10,
-            ceiling: 35,
+			floor: 0,
+            ceiling: 30,
 			title: {
                 text: 'Temperature °C'
             },
@@ -292,10 +295,18 @@ $(document).ready(function()
 			floor: 0,
             ceiling: 100,
 			title: {
-                text: 'Humidity %'
+                text: 'Humidity % or Visibility km'
             },
             opposite: true,
             id: 'H'
+    }, {
+            top: '67%', height: '33%',
+			floor: 0,
+			title: {
+                text: 'WindSpeed mph, NWeather Type, '
+            },
+            opposite: false,
+            id: 'O'
     }],
 		exporting: {
 		  enabled: true,
@@ -464,5 +475,38 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
       <input id="Update" name="Update" type="checkbox"><span style="font-family: Lucida Grande;">Update
         Chart</span> <span id="Latency" style="font-family: Lucida Grande;">(Latency)</span>
     </div>
+	<br> Add the weather code key below<br>
+	NA	Not available<br>
+0	Clear night<br>
+1	Sunny day<br>
+2	Partly cloudy (night)<br>
+3	Partly cloudy (day)<br>
+4	Not used<br>
+5	Mist<br>
+6	Fog<br>
+7	Cloudy<br>
+8	Overcast<br>
+9	Light rain shower (night)<br>
+10	Light rain shower (day)<br>
+11	Drizzle<br>
+12	Light rain<br>
+13	Heavy rain shower (night)<br>
+14	Heavy rain shower (day)<br>
+15	Heavy rain<br>
+16	Sleet shower (night)<br>
+17	Sleet shower (day)<br>
+18	Sleet<br>
+19	Hail shower (night)<br>
+20	Hail shower (day)<br>
+21	Hail<br>
+22	Light snow shower (night)<br>
+23	Light snow shower (day)<br>
+24	Light snow<br>
+25	Heavy snow shower (night)<br>
+26	Heavy snow shower (day)<br>
+27	Heavy snow<br>
+28	Thunder shower (night)<br>
+29	Thunder shower (day)<br>
+30	Thunder<br>
   </body>
 </html>
